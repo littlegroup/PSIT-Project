@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import pygal
-from pygal.style import LightGreenStyle
+from pygal.style import LightSolarizedStyle
 
-data = pd.read_csv('Storm.csv')
+data = pd.read_csv('Conflagration.csv')
 print(data)
 
 #get data injured to list
@@ -35,10 +35,10 @@ for i in year:
     list_year.append(i)
 print(list_year)
 
-chart = pygal.Line(title=u'Storm', secondary_range=(0, 130, 26), fill=True, interpolate='cubic', style=LightGreenStyle)
+chart = pygal.Line(title=u'Conflagration', secondary_range=(0, 306, 18), fill=True, interpolate='cubic', style=LightSolarizedStyle)
 chart.x_labels = map(int, list_year)
-chart.y_labels = map(int, range(0, 600, 100))
+chart.y_labels = map(int, range(0, 900, 50))
 chart.add('Injured', list_injured)
 chart.add('Death', list_death, secondary=True)
-chart.render_to_file("Storm.svg")
+chart.render_to_file("Conflagration.svg")
 #Show Graph Chart_XY
