@@ -35,10 +35,15 @@ for i in year:
     list_year.append(i)
 print(list_year)
 
-chart = pygal.Line(title=u'Flood', secondary_range=(0, 605, 55), fill=True, interpolate='cubic', style=TurquoiseStyle)
+chart = pygal.Line(title=u'Injured & Death', secondary_range=(0, 605, 55), fill=True, interpolate='cubic', style=TurquoiseStyle)
 chart.x_labels = map(int, list_year)
 chart.y_labels = map(int, range(0, 6000, 500))
 chart.add('Injured', list_injured)
 chart.add('Death', list_death, secondary=True)
-chart.render_to_file("Flood.svg")
-#Show Graph Chart_XY
+chart.render_to_file("Flood_Injured & Death.svg")
+
+chart = pygal.Bar(title=u'Damage(Flood)', fill=True, interpolate='cubic', style=TurquoiseStyle)
+chart.x_labels = map(int, list_year)
+chart.y_labels = map(int, range(0, 15000, 3750))
+chart.add('Damage', list_damage)
+chart.render_to_file("Flood_Damage.svg")
